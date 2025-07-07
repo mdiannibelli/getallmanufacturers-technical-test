@@ -10,6 +10,8 @@ Backend simple desarrollado con NestJS que expone un endpoint para obtener infor
 
 ## 📋 Endpoints
 
+API_URL crudo utilizado: https://vpic.nhtsa.dot.gov/api/vehicles/getallmanufacturers?format=json
+
 ### GET /manufacturers
 
 Obtiene la lista completa de fabricantes de vehículos desde la API de NHTSA.
