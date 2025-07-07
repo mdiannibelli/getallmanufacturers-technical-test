@@ -108,10 +108,3 @@ npm run test
 # Ejecutar tests e2e
 npm run test:e2e
 ```
-
-## 📝 Notas
-
-- Este es un backend muy simple con un solo endpoint
-- Utiliza la API pública de NHTSA para obtener datos de fabricantes
-- Incluye manejo básico de errores
-- Desarrollado para propósitos de entrevista técnica
