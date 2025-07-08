@@ -1,1 +1,21 @@
-<p>manufacturers-page works!</p>,
+<div>
+  @if(isLoading()) {
+  <div class="flex justify-center items-center h-screen flex-col">
+    <span class="text-center text-gray-300 text-xl"
+      >Loading manufacturers...</span
+    >
+  </div>
+  } @if(manufacturers()) {
+  <div
+    class="grid grid-cols-1 md:grid-cols-3 lg:max-w-[1424px] w-full mx-auto px-4 md:px-12 my-8"
+  >
+    @for(manufacturer of manufacturers(); track $index) {
+    <single-manufacturer [manufacturer]="manufacturer" />
+    } @empty {
+    <span class="text-xs text-center text-gray-300"
+      >There is no manufacturers</span
+    >
+    }
+  </div>
+  }
+</div>

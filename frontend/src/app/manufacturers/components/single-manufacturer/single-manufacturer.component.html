@@ -1,0 +1,56 @@
+<div
+  class="bg-white rounded-xl shadow-md border border-gray-200 p-6 m-4 w-92 h-[320px] flex flex-col transition-all duration-300 hover:shadow-lg hover:-translate-y-1"
+>
+  <div
+    class="flex justify-between items-center mb-4 pb-3 border-b-2 border-gray-100"
+  >
+    <h3 class="text-md font-semibold text-gray-800">
+      {{ manufacturer().name }}
+    </h3>
+    <span
+      class="bg-blue-500 text-white px-2 py-1 rounded-md text-sm font-medium flex-shrink-0"
+      >#{{ manufacturer().id }}</span
+    >
+  </div>
+
+  <div class="space-y-4 flex-1 flex flex-col">
+    <div class="space-y-2">
+      <div class="flex justify-between items-center py-2">
+        <span class="text-gray-600 font-medium text-sm">Country:</span>
+        <span class="text-gray-800 font-semibold text-sm truncate">{{
+          manufacturer().country
+        }}</span>
+      </div>
+
+      @if (manufacturer().commonName) {
+      <div class="flex justify-between items-center py-2">
+        <span class="text-gray-600 font-medium text-sm">Common name:</span>
+        <span class="text-gray-800 font-semibold text-sm truncate">{{
+          manufacturer().commonName
+        }}</span>
+      </div>
+      }
+    </div>
+
+    <div class="flex-1 flex flex-col">
+      <h4 class="text-gray-700 font-semibold mb-3">Vehicle types:</h4>
+      <div class="flex flex-wrap gap-2 flex-1">
+        @for (vehicleType of manufacturer().vehicleTypes; track
+        vehicleType.name) {
+        <span
+          class="px-3 py-1 h-fit rounded-full text-xs font-medium border transition-all duration-200 hover:scale-105 flex-shrink-0"
+          [class]="
+            vehicleType.isPrimary
+              ? 'bg-red-500 text-white border-red-600'
+              : 'bg-gray-100 text-gray-700 border-gray-300'
+          "
+        >
+          {{ vehicleType.name }}
+        </span>
+        } @empty {
+        <span class="text-xs text-gray-300">There is no vehicles</span>
+        }
+      </div>
+    </div>
+  </div>
+</div>
